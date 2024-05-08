@@ -2,7 +2,7 @@
 set -e
 
 # Stop the running container (if any)
-containerid=$(docker ps -q)
+containerid=$(docker ps | awk 'NR == 2 {print $1}')
 if [ ! -z "$containerid" ]; then
     docker rm -f $containerid
 else
