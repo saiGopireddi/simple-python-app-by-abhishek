@@ -5,5 +5,7 @@ set -e
 containerid=$(docker ps -q)
 if [ ! -z "$containerid" ]; then
     docker rm -f $containerid
+else
+    echo "No running containers found. Skipping."
 fi
 
